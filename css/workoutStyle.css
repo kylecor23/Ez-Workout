@@ -1,6 +1,6 @@
 body{
-    background-color: bisque;
-    color: #555;
+    background-color: #555;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.6em;
@@ -13,8 +13,45 @@ body{
     overflow: hidden;
 }
 
-#main-header{
-    background-color: gray;
-    color: #fff;
+#mainHeader{
+    background-color: white;
+    color: #555;
     text-align: center;
+}
+/*workout selection elements*/
+#inputPrime{
+    padding-top: 10px;
+}
+#inputSub{
+    padding-top: 10px;
+}
+#inputWeight{
+    padding-top: 10px;
+}
+.select{
+    background: black;
+    color: #fff;
+    width: auto;
+    height: 50px;
+    border-radius: 10px;
+    
+}
+.select::placeholder{
+    text-align: center;
+    font-size: larger;
+}
+#submit{
+    padding-top: 10px;
+}
+.button{
+   height: 30px;
+   width: 100px;
+   background-color: black;
+   color: #fff;
+   border-radius: 10px;
+
+}
+.button:hover{
+    background-color: white;
+    color: black;
 }

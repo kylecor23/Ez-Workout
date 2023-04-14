@@ -1,49 +1,63 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Project Workout</title>
-        <link rel="stylesheet" type="text/css"  href="css/workoutStyle.css"></link>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Workout</title>
+    <link rel="stylesheet" type="text/css" href="css/workoutStyle.css">
+</head>
 
-    <body>
-        <header id="main-header">
-            <div class="container">
-            <h1>Workout Creator</h1>
-            </div>
-        </header>
+<body>
+    <header id="mainHeader">
+        <div class="container">
+            <h1>Project Workout</h1>
+        </div>
+    </header> 
 
-        <!--section 1-->
-        <section id="one">
+    <section id="Instructions">
+        <div class="container">
+            <h2>Instructions</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, provident.</p>
+        </div>
+    </section>
 
-            <h3>Instructions</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minima quas quisquam.
-                 Dolores, accusamus nihil quam cum eum, magni amet 
-                 est maxime blanditii</p>
-
-        </section>
-
-        <section id="two">
+    <section id="inputPrime">
+        <div class="container">
             <label>Style of Workout</label>
-            <select name="primary workout">
-                <option selected disabled>Choose workout type</option>
-                <option value="HIIT">HIIT</option>
-                <option value="Strength">Strength</option>
-            </select>
             <br>
-            <label>Type of Workout</label>
-            <select name="HIIT">
-                <option selected disabled>Sub-catagorie</option>
-                <option value="HIIT">TABATA</option>
-                <option value="HIIT">EMOM</option>
-        </select>
-        <section>
-            <label for="Max weight ">Max weight</label>
-                <input type="text" name="Enter Max Weight" placeholder="Max weight">
-        </section>
+                <select name="primary workout" class="select">
+                    <option selected disabled>Choose workout type</option>
+                    <option value="HIIT">HIIT</option>
+                    <option value="Strength">Strength</option>
+                 </select>    
+        </div>
+    </section>
+    <section id="inputSub"> 
+        <div class="container"  
+            <lable> Type of Workout</label>
+                <br>
+                <select name="HIIT" class="select">
+                    <option selected disabled>Sub-catagorie</option>
+                    <option value="HIIT">TABATA</option>
+                    <option value="HIIT">EMOM</option>
+                </select>
+    </section> 
+    <section id="inputWeight">
+        <div class="container">
+                <label for="maxWeight">Max Weight</label>
+                <br>
+                <input type="text" name="maxWeight" placeholder="Max Weight" class="select">
+        </div>
+    </section>
+    <section id="submit">
+        <div class="container">
+            <button type="button" class="button">Submit</button>
+        </div>
+    </section>
+    <footer id="mainFooter">
+        <p>Copyright &copy; 2023 WorkoutCreator</p>
+    </footer>
+</body>
 
-        <!--footer-->
-        <footer id="main-footer">
-            <p>Copyright &copy; 2023 WorkoutCreator</p>
-        </footer>  
-  </body>
 </html>
