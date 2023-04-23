@@ -19,8 +19,11 @@ body{
     text-align: center;
 }
 /*workout selection elements*/
+.label{
+    display: block;
+}
 #inputPrime{
-    padding-top: 10px;
+    padding-top: 0
 }
 #inputSub{
     padding-top: 10px;
@@ -55,3 +58,24 @@ body{
     background-color: white;
     color: black;
 }
+
+#results{
+    text-align: center;
+    color: black;
+}
+
+.form-select{
+    display: flex;
+    width: 80%;
+    margin: 80px auto o;
+    column-gap: 30px;
+}
+
+.form-select > *{
+    flex: 0 0 50%;
+}
+
+.form-select > #results{
+    background-color: white;
+}
+

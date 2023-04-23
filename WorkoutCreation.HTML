@@ -14,49 +14,104 @@
             <h1>Project Workout</h1>
         </div>
     </header> 
+    <div class="form-select">
+        
+        <div id="box1">
+            <div id="Instructions">
+                    <div class="container">
+                        <h2>Instructions</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, provident.</p>
+                    </div>
+            </div>
 
-    <section id="Instructions">
-        <div class="container">
-            <h2>Instructions</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, provident.</p>
-        </div>
-    </section>
+            <form id="inputs">
+                    <div class="container">
+                        <div id="inputPrime">
+                            <label class="label" for="inputPrime">Style of Workout</label>
+                            <select name="primary workout" class="select">
+                                <option selected disabled>Choose workout type</option>
+                                <option value="HIIT">HIIT</option>
+                                <option value="Strength">Strength</option>
+                            </select>
+                        </div>
 
-    <section id="inputPrime">
-        <div class="container">
-            <label>Style of Workout</label>
-            <br>
-                <select name="primary workout" class="select">
-                    <option selected disabled>Choose workout type</option>
-                    <option value="HIIT">HIIT</option>
-                    <option value="Strength">Strength</option>
-                 </select>    
+                        <div id="inputSub">
+                            <label class="label" for="Sub-catagorie">Type of workout</label>
+                            <select name="HIIT" class="select">
+                                <option selected disabled>Sub-catagorie</option>
+                                <option value="HIIT">TABATA</option>
+                                <option value="HIIT">EMOM</option>
+                            </select>
+                        </div>
+
+                        <div id="inputWeight">
+                            <label class="label" for="maxWeight">Max Weight</label>
+                            <input type="text" name="maxWeight" placeholder="Max Weight" class="select">
+                        </div>
+
+                        <div id="submit">
+                            <button type="button" class="button">Submit</button>
+                        </div>
+                        
+                    </div>
+            </form>
         </div>
-    </section>
-    <section id="inputSub"> 
-        <div class="container"  
-            <lable> Type of Workout</label>
-                <br>
-                <select name="HIIT" class="select">
-                    <option selected disabled>Sub-catagorie</option>
-                    <option value="HIIT">TABATA</option>
-                    <option value="HIIT">EMOM</option>
-                </select>
-    </section> 
-    <section id="inputWeight">
-        <div class="container">
-                <label for="maxWeight">Max Weight</label>
-                <br>
-                <input type="text" name="maxWeight" placeholder="Max Weight" class="select">
+        <div id="results">
+            <h1>HIIT workout</h1>
+            <h3>Instructions</h3>
+            <p> 
+                Each exercise will be done for 45 seconds with a 15 second break between exercises. Once gone through
+                list of exercises rest for 1 minute and complete for a total of 3 times to finish workout
+            </p>
+            <ul>
+                <li>JumpSquat</li>
+                <li>Squat </li>
+                <li>Skaters</li>
+                <li>Lunge</li>
+                <li>Mt.Climbers</li>
+                <li>Russian Twist</li>
+                <li>Kb Swing</li>
+                <li>Kb Press</li>
+                <li>Burpee</li>
+                <li>Push up</li>
+            </ul>
+
+            <H1>Chest workout(Hypertophy)</H1>
+            <h3>Instructions</h3>
+            <p>
+                complete prescribed exersise for number of reps and sets. 
+            </p>
+            <ol>
+                    <li>Slight Decline Dumbell press: 5 set of 8 top set RPE:10  </li>
+                    <li> Incline Barbell Press: 5 sets of 6 top set RPE:9 </li>
+                    <li>Hex Press: 4 sets reps 10,8,6,4,2 RPE:9 to 11</li>
+                    <li>Cable Fly: 2 sets of 10 RPE:8</li>
+                    <li>Dual rope pull down: 3 sets of 25 RPE:9</li>
+                    <li>Skull Crushers: 3 sets of 12 RPE:8</li>
+            </ol>
+        
+            <h1>Legs Workout(Strength)</h1>
+            <p>
+                complete prescribed exersise for number of reps and sets. 
+            </p>
+            <ol>
+                <li>Barbell Squat </li>
+                    <ul>
+                        <li>55% 1RM 1 set of 5</li>
+                        <li>65% 1x4</li>
+                        <li>75% 1x3</li>
+                        <li>85% 4x2</li>
+                    </ul>
+                <li>Leg Extention RPE:9 5x8</li>
+                <li>Bulgarian Split Squat RPE:8 5x8</li>
+                <li>Abb Wheel 4x12</li>
+            </ol>
+            
         </div>
-    </section>
-    <section id="submit">
-        <div class="container">
-            <button type="button" class="button">Submit</button>
-        </div>
-    </section>
-    <footer id="mainFooter">
-        <p>Copyright &copy; 2023 WorkoutCreator</p>
+    </div>
+
+    <footer>
+
     </footer>
 </body>
 
