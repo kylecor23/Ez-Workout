@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Workout</title>
     <link rel="stylesheet" type="text/css" href="css/workoutStyle.css">
-   <script src="script.js" defer></script>
+   <script src="script.js" async></script>
 </head>
 
 <body>
@@ -30,18 +30,16 @@
                         <div id="select1">
                             <label class="label" for="inputPrime">Style of Workout</label>
                             <select name="primary workout" id='inputPrime'class="select">
-                                <option selected disabled>Choose workout type</option>
+                                <option selected disabled>Workout Type</option>
+                                <option value="cardio">Cardio</option>
+                                <option value="strength">Strength</option>
                             </select>
                         </div>
-                        <div id="test"></div>
-                        <div id="inputSub">
+                        
+                        <div  id="inputs">
                             <label class="label" for="inputSup">Type of workout</label>
                             <select name="inputSub" id="inputSub" class="select">
-                                <option selected disabled>Sub-catagorie</option>
-                                <option value="cardio">HIIT</option>
-                                <option value="strength">Chest</option>
-                                <option value="strength">Back</option>
-                                <option value="strength">Legs</option>
+                                <option selected disabled>Workout Catagorie</option>
                             </select>
                             
                         </div>
