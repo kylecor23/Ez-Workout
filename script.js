@@ -3,7 +3,9 @@ var workouts = {
     cardio: ["HIIT"]
   };
 
-const workoutSelection = document.querySelector('#inputPrime')
+
+
+const workoutSelection = document.querySelector('#inputPrime');
 const subSelection = document.querySelector('#inputSub');
 
 workoutSelection.addEventListener('change', (e) => {
@@ -20,4 +22,12 @@ for (let i=0; i < subCategorySelection.length; i++) {
     option.value = style;
     subSelection.appendChild(option);
 }
+});
+
+const formInput = document.querySelector('#formInput');
+const button = document.querySelector('.button');
+
+button.addEventListener('click', function () {
+    formInput.submit();
+
 });
