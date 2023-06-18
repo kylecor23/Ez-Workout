@@ -31,26 +31,12 @@ workoutSelection.addEventListener('change', (e) => {
     }
     }); 
 
-// hooking up weight input and calculating ratio
+// hooking up weight input 
 
 inputWeight.addEventListener('change', (e) =>{
-    const weightSelected = e.target.value
-
-    const minPercent = 65
-    const maxPercent = 100
-    const randomPercent = Math.floor(Math.random()*(((maxPercent - minPercent) / 5) + 1)) * 5 + minPercent;
-    var weightResult = Math.floor(weightSelected * (randomPercent / 100));
-    //console.log(weightResult);
-
-    const minWeight = Number(weightSelected * .50)
-    for (
-        let weightFinal = weightResult;
-        weightFinal >= minWeight;
-        weightFinal -= weightSelected * 0.1) {
-        console.log(weightFinal);
-        };
-   
-    });
+    const weightSelected = e.target.value;
+    weightSelected.innerHTML = '';
+});
 
 
 
@@ -60,19 +46,35 @@ button.addEventListener('click', function (event) {
     result.innerHTML = '';
 
     if (workoutSelection.value.toLowerCase() === 'strength' && subSelection.value.toLowerCase() === 'chest') {
-        const wr = document.createElement('p');
-        wr.textContent = "bench press";
-        result.appendChild(wr);
+        const workoutDisplay = document.createElement('p');
+        workoutDisplay.textContent = "bench press";
+        result.appendChild(workoutDisplay);
     } else if (workoutSelection.value.toLowerCase() === 'strength' && subSelection.value.toLowerCase() === 'back') {
-        const wr = document.createElement('p');
-        wr.textContent = "deadlift";
-        result.appendChild(wr);
+        const workoutDisplay = document.createElement('p');
+        workoutDisplay.textContent = "deadlift";
+        result.appendChild(workoutDisplay);
     } else if (workoutSelection.value.toLowerCase() === 'strength' && subSelection.value.toLowerCase() === 'legs') {
-        const wr = document.createElement('p');
-        wr.textContent = "squat";
-        result.appendChild(wr);
-    }
-}); 
+        const workoutDisplay = document.createElement('p');
+        workoutDisplay.textContent = "squat";
+        result.appendChild(workoutDisplay);
+    };
 
+    const weightSelected = inputWeight.value;
+    const minPercent = 65;
+    const maxPercent = 100;
+    const randomPercent = Math.floor(Math.random() * (((maxPercent - minPercent) / 5) + 1)) * 5 + minPercent;
+    const weightResult = Math.floor(weightSelected * (randomPercent / 100));
+   //generating random workout max % to be lifted and warm-up weight 
+    const minWeight = Number(weightSelected * 0.5);
+    for (
+        let weightFinal = minWeight; 
+        weightFinal <= weightResult; 
+        weightFinal += weightSelected * 0.1){
+        const weightDisplay = document.createElement('p');
+        weightDisplay.textContent = weightFinal;
+        result.appendChild(weightDisplay);
+        };
 
+        
+});
 
