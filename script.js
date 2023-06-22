@@ -31,6 +31,26 @@ workoutSelection.addEventListener('change', (e) => {
     }
     }); 
 
+    const exercises = {
+        strength: {
+            chest: 'Bench Press',
+            back: 'Deadlift',
+            legs: 'Squat'
+        }
+    };
+        
+      
+    function workoutDisplay(workoutSelection, subSelection) {
+        const selectedExercise = exercises[workoutSelection.value.toLowerCase()][subSelection.value.toLowerCase()];
+      
+        const workoutDisplay = document.createElement('p');
+        workoutDisplay.textContent = selectedExercise;
+        result.appendChild(workoutDisplay);
+      }
+
+
+
+
 // hooking up weight input 
 
 inputWeight.addEventListener('change', (e) =>{
@@ -45,19 +65,8 @@ button.addEventListener('click', function (event) {
     event.preventDefault();
     result.innerHTML = '';
 
-    if (workoutSelection.value.toLowerCase() === 'strength' && subSelection.value.toLowerCase() === 'chest') {
-        const workoutDisplay = document.createElement('p');
-        workoutDisplay.textContent = "bench press";
-        result.appendChild(workoutDisplay);
-    } else if (workoutSelection.value.toLowerCase() === 'strength' && subSelection.value.toLowerCase() === 'back') {
-        const workoutDisplay = document.createElement('p');
-        workoutDisplay.textContent = "deadlift";
-        result.appendChild(workoutDisplay);
-    } else if (workoutSelection.value.toLowerCase() === 'strength' && subSelection.value.toLowerCase() === 'legs') {
-        const workoutDisplay = document.createElement('p');
-        workoutDisplay.textContent = "squat";
-        result.appendChild(workoutDisplay);
-    };
+    workoutDisplay(workoutSelection, subSelection);
+    
 
     const weightSelected = inputWeight.value;
     const minPercent = 65;
@@ -74,7 +83,7 @@ button.addEventListener('click', function (event) {
         weightDisplay.textContent = weightFinal;
         result.appendChild(weightDisplay);
         };
-
+    
+    /* note: pull randomPercent to get the percentage generated for maxWeight (to be lifted) use same 0.1 decrease to generate percentages that are for warm up weight. From these values might beable to use if and else if to assine reps to percentages ie. if percentage is 75% reps = 10. You can then display reps next to weightDisplayed  */
         
 });
-
