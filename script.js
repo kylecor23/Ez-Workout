@@ -46,10 +46,29 @@ workoutSelection.addEventListener('change', (e) => {
         const workoutDisplay = document.createElement('p');
         workoutDisplay.textContent = selectedExercise;
         result.appendChild(workoutDisplay);
-      }
+      };
 
+      
+      const reps ={
+        numberReps: {
+            65: '12',
+            70: '10',
+            75: '8',
+            80: '6',
+            85: '5',
+            90: '3',
+            95: '2',
+            100: '1'
+                }
+    };
+// used to take top weight of the day and assine a rep based of % to be liffted
+    function exercisesReps(randomPercent){
+        const displayReps = reps.numberReps[randomPercent];
 
-
+        const exercisesReps =document.createElement('p');
+        exercisesReps.textContent = "4 x " + displayReps;
+        result.appendChild(exercisesReps);
+    };
 
 // hooking up weight input 
 
@@ -71,6 +90,7 @@ button.addEventListener('click', function (event) {
     const weightSelected = inputWeight.value;
     const minPercent = 65;
     const maxPercent = 100;
+// randomly generates a top percentage based on inputed max weight to give top weight for workout session 
     const randomPercent = Math.floor(Math.random() * (((maxPercent - minPercent) / 5) + 1)) * 5 + minPercent;
     const weightResult = Math.floor(weightSelected * (randomPercent / 100));
    //generating random workout max % to be lifted and warm-up weight 
@@ -83,7 +103,7 @@ button.addEventListener('click', function (event) {
         weightDisplay.textContent = weightFinal;
         result.appendChild(weightDisplay);
         };
+
+        exercisesReps(randomPercent);
     
-    /* note: pull randomPercent to get the percentage generated for maxWeight (to be lifted) use same 0.1 decrease to generate percentages that are for warm up weight. From these values might beable to use if and else if to assine reps to percentages ie. if percentage is 75% reps = 10. You can then display reps next to weightDisplayed  */
-        
 });
