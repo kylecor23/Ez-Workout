@@ -70,7 +70,16 @@ workoutSelection.addEventListener('change', (e) => {
         result.appendChild(exercisesReps);
     };
 
-// hooking up weight input 
+// take the ammount of jumps tell weight results is hit and creats the amount of warm-up sets that needed to be printed. 
+    function warmUpReps(jumps){
+        const displayWarmUp = jumps;
+        for (let i = 0; i < jumps; i++) {
+        const warmUpReps = document.createElement('p');
+        warmUpReps.textContent = "1 x 5";
+        result.appendChild(warmUpReps);
+        };
+    };
+// hooking up weight input
 
 inputWeight.addEventListener('change', (e) =>{
     const weightSelected = e.target.value;
@@ -95,6 +104,9 @@ button.addEventListener('click', function (event) {
     const weightResult = Math.floor(weightSelected * (randomPercent / 100));
    //generating random workout max % to be lifted and warm-up weight 
     const minWeight = Number(weightSelected * 0.5);
+// caculates how many jumps it takes for weight results to be hit 
+    const jumps = Math.ceil((weightResult - minWeight) / (weightSelected * 0.1));
+    
     for (
         let weightFinal = minWeight; 
         weightFinal <= weightResult; 
@@ -104,6 +116,8 @@ button.addEventListener('click', function (event) {
         result.appendChild(weightDisplay);
         };
 
+        warmUpReps(jumps);
         exercisesReps(randomPercent);
     
-});
+        
+}); 
