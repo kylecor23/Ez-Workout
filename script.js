@@ -38,7 +38,17 @@ workoutSelection.addEventListener('change', (e) => {
             legs: 'Squat'
         }
     };
-        
+       
+    const exerciseAccessories = {
+        chestExercise: ["Incline press", "Machine press", "Chest fly", "Chest dip", "Decline Press", "Floor press"],
+        armExercise: ["Hammer Curl","Bicep Curl","Zottman Curls","Ez bar curl","Dual Rope Pushdown","Tricep Overhead Extension","Single Handle Push Down","Skull Crushers"],
+        shoulderExercise:["Overhead Press","Face Pulls","Delt Fly","Lateral Raise","Y Raise","Push Press","Front Raise"],
+        backExercise:["Single Arm Row","Lat Pulldown","Staight Arm Pulldown", "Shrugs", "Fammer Walks","Rack Pull","Pull Up","Barbell Row","Yoke walk"],
+        legExercise:["lunge","Step-Ups","Bulgarian Split Squat","Leg Extention","Sled Push","Leg Press","Hamstring Curl","Seated Calf Raise","Standing Calf Raise","Romanian Deadlift","Nordic Hamstring Curl"],
+        coreExtercise:["Dead Bug","Sit-up","Leg raise","Abb Wheel","Cable Crunch","Hanging leg Raise","Side Plank","Front Plank","Stir the Pot","Russian Twists"],
+        cardioExercise:["Slam Ball","Jumping Jacks","Burpee","Jump Squat","Digs","Suacide Sprints","Sled Sprint","High Knees","Bum Kicks"," Kettle Bell Swing","Plank Jacks","Flutter Kicks","Box Jumps"],
+
+    };
       
     function workoutDisplay(workoutSelection, subSelection) {
         const selectedExercise = exercises[workoutSelection.value.toLowerCase()][subSelection.value.toLowerCase()];
@@ -81,10 +91,6 @@ workoutSelection.addEventListener('change', (e) => {
     };
 // hooking up weight input
 
-inputWeight.addEventListener('change', (e) =>{
-    const weightSelected = e.target.value;
-    weightSelected.innerHTML = '';
-});
 
 
 
@@ -118,6 +124,7 @@ button.addEventListener('click', function (event) {
 
         warmUpReps(jumps);
         exercisesReps(randomPercent);
-    
-        
+     
 }); 
+
+// create a object array for the workouts to be displayed 
