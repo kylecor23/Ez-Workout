@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Workout</title>
     <link rel="stylesheet" type="text/css" href="css/workoutStyle.css">
-   <script src="script.js" async></script>
+   <script src="./script.js" async></script>
 </head>
 
 <body>
-    <header id="mainHeader">
-        <div class="container">
-            <h1>Project Workout</h1>
-        </div>
+    <header class="main-header">
+        <h1>Project Workout</h1>
     </header> 
-    <div class="form-select">
-        
-        <div id="box1">
-            <div id="Instructions">
+    <main class="main"> 
+        <div class="form-container">
+            <div class="instructions">
                     <div class="container">
                         <h2>Instructions</h2>
                         <p>Using the options bellow select a Style of workout and a type of workout within that style.
@@ -26,39 +24,36 @@
                     </div>
             </div>
 
-            <form id="formInput">
-                    <div class="container">
-                        <div id="select1">
-                            <label class="label" for="inputPrime">Style of Workout</label>
-                            <select name="primary workout" id='inputPrime'class="select">
-                                <option selected disabled>Workout Type</option>
-                                <option value="cardio">Cardio</option>
-                                <option value="strength">Strength</option>
-                            </select>
-                        </div>
-                        
-                        <div  id="inputs">
-                            <label class="label" for="inputSup">Type of workout</label>
-                            <select name="inputSub" id="inputSub" class="select">
-                                <option selected disabled>Workout Catagorie</option>
-                            </select>
-                            
-                        </div>
+            <form class="form" id="formInput" onsubmit="">
+                <div>
+                    <label class="label" for="inputPrime">Style of Workout</label>
+                    <select name="primary workout" id='inputPrime' class="form-input">
+                        <option selected disabled>Workout Type</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="strength">Strength</option>
+                    </select>
+                </div>
+                
+                <div id="inputs">
+                    <label class="label" for="inputSup">Type of workout</label>
+                    <select name="inputSub" id="inputSub" class="form-input">
+                        <option selected disabled>Workout Catagorie</option>
+                    </select>
+                    
+                </div>
 
-                        <div>
-                            <label class="label" for="inputWeight">Max Weight</label>
-                            <input type="number" name="maxWeight" placeholder="Max Weight" class="select" id="inputWeight" min="20" step="2.5" >
-                        </div>
-
-                        <div id="submit">
-                            <button type="button" class="button">Submit</button>
-                        </div>
-                    </div>
+                <div>
+                    <label class="label" for="inputWeight">Max Weight</label>
+                    <input type="number" name="maxWeight" placeholder="Max Weight" class="form-input" id="inputWeight" min="20" step="2.5" >
+                </div>
+                
+                <button type="submit" class="submit-button">Submit</button>
             </form>
+        </div>
 
-            <div  id="results">
-             </div>
-    </div>
+        <div class="results" id="results">
+        </div>
+    </main>
 
     <footer>
 
