@@ -87,34 +87,58 @@ const accessoriesCategory = {
     'legs' : ['legExercise' , 'coreExtercise'],
 };
 
-function accessories(exerciseAccessories) {
+/*function accessories(exerciseAccessories) {
    
    const subCategorySelected = subSelection.value.toLowerCase();
    let randomCategory;
    let setTime = 0;
-   
-while (setTime <= 3 ) {
-   if (subCategorySelected in accessoriesCategory) {
+
+while (setTime <= 2 ) {
+ 
     const categoryOptions = accessoriesCategory[subCategorySelected];
     randomCategory = categoryOptions[Math.floor(Math.random() * categoryOptions.length)];
-   } else {
-    randomCategory = Object.keys(exerciseAccessories)[Math.floor(Math.random() * Object.keys(exerciseAccessories).length)];
-   }
+   
    const randomExercise = exerciseAccessories[randomCategory][Math.floor(Math.random() * exerciseAccessories[randomCategory].length)];
+  
    const accessories = document.createElement('p');
    accessories.textContent = randomExercise;
    result.appendChild(accessories);
 
    setTime++;
-   } };
+   } };*/
 
+   function accessories(exerciseAccessories) {
+    const subCategorySelected = subSelection.value.toLowerCase();
+    let randomCategory;
+    let accessoryWorkoutCount = 1;
+    const selectedExercises = []; 
+  
+    while (accessoryWorkoutCount <= 3) {
+      const categoryOptions = accessoriesCategory[subCategorySelected];
+      randomCategory = categoryOptions[Math.floor(Math.random() * categoryOptions.length)];
+      const randomExercise = exerciseAccessories[randomCategory][Math.floor(Math.random() * exerciseAccessories[randomCategory].length)];
+  
+      if (selectedExercises.includes(randomExercise)) {
+         continue;
+      }
+  
+      selectedExercises.push(randomExercise); 
+      accessoryWorkoutCount++;
+    }
+  
     
-
+      const accessories = document.createElement('p');
+      accessories.textContent = selectedExercises;
+      result.appendChild(accessories);
+    
+  }
 
 // submit button to generate results 
 formInput.addEventListener('submit', function (event) {
     event.preventDefault();
     result.innerHTML = '';
+
+    workoutDisplay(workoutSelection, subSelection)
 
     const weightSelected = inputWeight.value;
 
