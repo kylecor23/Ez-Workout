@@ -63,22 +63,22 @@ function toNumberDivisibleBy5(decimalNumber) {
 const weightPercentToReps = {
     0.65: ['3', '12'],
     0.70: ['3', '10'],
-    0.75: ['4', '8'],
-    0.80: ['5', '6'],
-    0.85: ['5', '5'],
-    0.90: ['3', '3'],
-    0.95: ['2', '2'],
+    0.75: ['3', '8'],
+    0.80: ['2', '6'],
+    0.85: ['2', '5'],
+    0.90: ['1', '3'],
+    0.95: ['1', '2'],
     1: ['1', '1'] // Will likely be for the last set
 }
 
 const exerciseAccessories = {
-    chestExercise: ["Incline press", "Machine press", "Chest fly", "Chest dip", "Decline Press", "Floor press"],
-    armExercise: ["Hammer Curl","Bicep Curl","Zottman Curls","Ez bar curl","Dual Rope Pushdown","Tricep Overhead Extension","Single Handle Push Down","Skull Crushers"],
+    chestExercise: ["Incline press", "Machine press", "Chest Fly", "Chest Dip", "Decline Press", "Floor Press"],
+    armExercise: ["Hammer Curl","Bicep Curl","Zottman Curls","Ez Bar Curl","Dual Rope Pushdown","Tricep Overhead Extension","Single Handle Push Down","Skull Crushers"],
     shoulderExercise:["Overhead Press","Face Pulls","Delt Fly","Lateral Raise","Y Raise","Push Press","Front Raise"],
-    backExercise:["Single Arm Row","Lat Pulldown","Staight Arm Pulldown", "Shrugs", "Fammer Walks","Rack Pull","Pull Up","Barbell Row","Yoke walk"],
-    legExercise:["lunge","Step-Ups","Bulgarian Split Squat","Leg Extention","Sled Push","Leg Press","Hamstring Curl","Seated Calf Raise","Standing Calf Raise","Romanian Deadlift","Nordic Hamstring Curl"],
-    coreExtercise:["Dead Bug","Sit-up","Leg raise","Abb Wheel","Cable Crunch","Hanging leg Raise","Side Plank","Front Plank","Stir the Pot","Russian Twists"],
-    cardioExercise:["Slam Ball","Jumping Jacks","Burpee","Jump Squat","Digs","Suacide Sprints","Sled Sprint","High Knees","Bum Kicks"," Kettle Bell Swing","Plank Jacks","Flutter Kicks","Box Jumps"],
+    backExercise:["Single Arm Row","Lat Pulldown","Staight Arm Pulldown", "Shrugs", "Farmer Walks","Rack Pull","Pull Up","Barbell Row","Yoke Walk"],
+    legExercise:["Lunge","Step-Ups","Bulgarian Split Squat","Leg Extention","Sled Push","Leg Press","Hamstring Curl","Seated Calf Raise","Standing Calf Raise","Romanian Deadlift","Nordic Hamstring Curl"],
+    coreExtercise:["Dead Bug","Sit-up","Leg Raise","Ab Wheel","Cable Crunch","Hanging Leg Raise","Side Plank","Front Plank","Stir the Pot","Russian Twists"],
+    cardioExercise:["Slam Ball","Jumping Jacks","Burpee","Jump Squat","Digs","Suicide Sprints","Sled Sprint","High Knees","Bum Kicks"," Kettle Bell Swing","Plank Jacks","Flutter Kicks","Box Jumps"],
 
 }
 const accessoriesCategory = {
@@ -131,9 +131,9 @@ while (setTime <= 2 ) {
       accessories.textContent = selectedExercises;
       result.appendChild(accessories);
     
-  }
+  };
 
-// submit button to generate results 
+
 formInput.addEventListener('submit', function (event) {
     event.preventDefault();
     result.innerHTML = '';
@@ -150,7 +150,7 @@ formInput.addEventListener('submit', function (event) {
     // Generates a decimal number (as a percentage) whose hundredth number is 0 or 5
     const startPercentage = toNumberDivisibleBy5(randomPercentage);
 
-    // A counter for the number sets
+    
     let setCount = 0;
 
     while (setCount <= 3) { // the max number of sets, at which the iteration will stop. There's be 4 iterations (or sets) since the counter starts at 0 and ends at 3.
@@ -167,7 +167,7 @@ formInput.addEventListener('submit', function (event) {
         weightDisplay.textContent = isLastSet ? `1 x 4: ${setWeight}lbs` : `${sets} x ${reps}: ${setWeight}lbs`;
         result.appendChild(weightDisplay);
 
-        setCount++; // Very important to add to prevent an infinite loop and crash your browser!
+        setCount++; 
     }   
     accessories(exerciseAccessories);
 });
