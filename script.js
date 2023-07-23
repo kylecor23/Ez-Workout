@@ -68,7 +68,7 @@ const weightPercentToReps = {
     0.85: ['2', '5'],
     0.90: ['1', '3'],
     0.95: ['1', '2'],
-    1: ['1', '1'] // Will likely be for the last set
+    1: ['1', '1'] 
 }
 
 const exerciseAccessories = {
@@ -87,25 +87,7 @@ const accessoriesCategory = {
     'legs' : ['legExercise' , 'coreExtercise'],
 };
 
-/*function accessories(exerciseAccessories) {
-   
-   const subCategorySelected = subSelection.value.toLowerCase();
-   let randomCategory;
-   let setTime = 0;
 
-while (setTime <= 2 ) {
- 
-    const categoryOptions = accessoriesCategory[subCategorySelected];
-    randomCategory = categoryOptions[Math.floor(Math.random() * categoryOptions.length)];
-   
-   const randomExercise = exerciseAccessories[randomCategory][Math.floor(Math.random() * exerciseAccessories[randomCategory].length)];
-  
-   const accessories = document.createElement('p');
-   accessories.textContent = randomExercise;
-   result.appendChild(accessories);
-
-   setTime++;
-   } };*/
 
    function accessories(exerciseAccessories) {
     const subCategorySelected = subSelection.value.toLowerCase();
@@ -125,18 +107,25 @@ while (setTime <= 2 ) {
       selectedExercises.push(randomExercise); 
       accessoryWorkoutCount++;
     }
-  
+      
+      
+      selectedExercises.forEach(exercise => {
+        const accessories = document.createElement('p');
+        accessories.textContent = `4x12: ${exercise}`;
+        result.appendChild(accessories);
+      });
     
-      const accessories = document.createElement('p');
-      accessories.textContent = selectedExercises;
-      result.appendChild(accessories);
-    
-  };
+  }; 
 
 
 formInput.addEventListener('submit', function (event) {
     event.preventDefault();
     result.innerHTML = '';
+// changes css styling 
+    var elementsToStyle = document.querySelectorAll('* ,.main, .main-header, .form-input, .submit-button, .results');
+    elementsToStyle.forEach(function (element) {
+      element.classList.add('newStyle');
+    });
 
     workoutDisplay(workoutSelection, subSelection)
 
@@ -153,7 +142,7 @@ formInput.addEventListener('submit', function (event) {
     
     let setCount = 0;
 
-    while (setCount <= 3) { // the max number of sets, at which the iteration will stop. There's be 4 iterations (or sets) since the counter starts at 0 and ends at 3.
+    while (setCount <= 3) { // the max number of sets, at which the iteration will stop. 
         const percentAdded = setCount * 0.05; // percent is incremented by 0.05.
         const setPercent = toNumberDivisibleBy5(startPercentage + percentAdded);
         const setWeight = Math.round((setPercent * weightSelected) / 2.5) * 2.5;
@@ -170,4 +159,7 @@ formInput.addEventListener('submit', function (event) {
         setCount++; 
     }   
     accessories(exerciseAccessories);
+
+   
+
 });
