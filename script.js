@@ -21,6 +21,7 @@ function handleSubmit(e) {
 
 // target change in sub cat by option selected in main 
 
+
 workoutSelection.addEventListener('change', (e) => {
     const categorySelected = e.target.value;
     subSelection.innerHTML = '';
@@ -34,6 +35,13 @@ workoutSelection.addEventListener('change', (e) => {
         option.value = style;
         subSelection.appendChild(option);
     }
+
+    const elementRemove = document.querySelector("#inputWeight");
+   
+    if (subCategorySelection.includes('HIIT')) {
+        elementRemove.remove();
+    } 
+        
 }); 
 
 const exercises = {
@@ -41,24 +49,28 @@ const exercises = {
         chest: 'Bench Press',
         back: 'Deadlift',
         legs: 'Squat'
+    },
+    cardio: {
+        hiit: 'HIIT'
     }
 };
         
       
 function workoutDisplay(workoutSelection, subSelection) {
+
     const selectedExercise = exercises[workoutSelection.value.toLowerCase()][subSelection.value.toLowerCase()];
     
     const workoutDisplay = document.createElement('p');
     workoutDisplay.textContent = selectedExercise;
     result.appendChild(workoutDisplay);
-}
+};
 
 function toNumberDivisibleBy5(decimalNumber) {
     const numberRounded = Math.round(decimalNumber * 100);
     const divisibleBy5 = (Math.round(numberRounded / 5) * 5) / 100;
 
     return divisibleBy5;
-}
+};
 
 const weightPercentToReps = {
     0.65: ['3', '12'],
@@ -87,9 +99,13 @@ const accessoriesCategory = {
     'legs' : ['legExercise' , 'coreExtercise'],
 };
 
+    
 
+function hiitAccessories(hiitExercise){
 
-   function accessories(exerciseAccessories) {
+}
+
+function accessories(exerciseAccessories) {
     const subCategorySelected = subSelection.value.toLowerCase();
     let randomCategory;
     let accessoryWorkoutCount = 1;
@@ -99,10 +115,11 @@ const accessoriesCategory = {
       const categoryOptions = accessoriesCategory[subCategorySelected];
       randomCategory = categoryOptions[Math.floor(Math.random() * categoryOptions.length)];
       const randomExercise = exerciseAccessories[randomCategory][Math.floor(Math.random() * exerciseAccessories[randomCategory].length)];
-  
+        
+
       if (selectedExercises.includes(randomExercise)) {
-         continue;
-      }
+        continue;
+     }
   
       selectedExercises.push(randomExercise); 
       accessoryWorkoutCount++;
@@ -143,6 +160,7 @@ formInput.addEventListener('submit', function (event) {
     let setCount = 0;
 
     while (setCount <= 3) { // the max number of sets, at which the iteration will stop. 
+        
         const percentAdded = setCount * 0.05; // percent is incremented by 0.05.
         const setPercent = toNumberDivisibleBy5(startPercentage + percentAdded);
         const setWeight = Math.round((setPercent * weightSelected) / 2.5) * 2.5;
