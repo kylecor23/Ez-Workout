@@ -1,7 +1,7 @@
 
 const workouts = {
     strength: ["Chest", "Back", "Legs"],
-    cardio: ["HIIT"]
+    cardio: ["HIIT", "TABATA"]
   };
 
 
@@ -21,6 +21,23 @@ function handleSubmit(e) {
 
 // target change in sub cat by option selected in main 
 
+  // add to event lessoner primary 
+  /*if (subSelection.value.toUpperCase() === 'HIIT') {
+    weightInputElement.remove();
+}*/
+
+workoutSelection.addEventListener('change',(e)=> {
+    const primaryCategorySelected = e.target.value;
+    const weightInputElement = document.querySelector('#inputWeight');
+    console.log(workoutSelection.value);
+
+    if (workoutSelection.value.toLowerCase() === 'cardio') {
+        inputWeight.style.display = 'none';}
+         else {
+         inputWeight.style.display = 'block';
+        }
+
+});
 
 workoutSelection.addEventListener('change', (e) => {
     const categorySelected = e.target.value;
@@ -35,13 +52,8 @@ workoutSelection.addEventListener('change', (e) => {
         option.value = style;
         subSelection.appendChild(option);
     }
-
-    const elementRemove = document.querySelector("#inputWeight");
-   
-    if (subCategorySelection.includes('HIIT')) {
-        elementRemove.remove();
-    } 
-        
+// add to event lessoner to subSelection 
+    const weightInputElement = document.querySelector("#inputWeight");        
 }); 
 
 const exercises = {
@@ -56,7 +68,7 @@ const exercises = {
 };
         
       
-function workoutDisplay(workoutSelection, subSelection) {
+function displayExerciseSelected(workoutSelection, subSelection) {
 
     const selectedExercise = exercises[workoutSelection.value.toLowerCase()][subSelection.value.toLowerCase()];
     
@@ -105,7 +117,7 @@ function hiitAccessories(hiitExercise){
 
 }
 
-function accessories(exerciseAccessories) {
+function generateAccessoryWorkout(exerciseAccessories) {
     const subCategorySelected = subSelection.value.toLowerCase();
     let randomCategory;
     let accessoryWorkoutCount = 1;
@@ -134,18 +146,7 @@ function accessories(exerciseAccessories) {
     
   }; 
 
-
-formInput.addEventListener('submit', function (event) {
-    event.preventDefault();
-    result.innerHTML = '';
-// changes css styling 
-    var elementsToStyle = document.querySelectorAll('* ,.main, .main-header, .form-input, .submit-button, .results');
-    elementsToStyle.forEach(function (element) {
-      element.classList.add('newStyle');
-    });
-
-    workoutDisplay(workoutSelection, subSelection)
-
+  function handeStrenghtWorkout() {
     const weightSelected = inputWeight.value;
 
     const minPercentOfWeight = 0.65;
@@ -176,8 +177,21 @@ formInput.addEventListener('submit', function (event) {
 
         setCount++; 
     }   
-    accessories(exerciseAccessories);
+    generateAccessoryWorkout(exerciseAccessories);
+  }
 
-   
+formInput.addEventListener('submit', function (event) {
+    event.preventDefault();
+    result.innerHTML = '';
+    
+    const bodyElement = document.querySelector('body');
+    bodyElement.classList.add('newStyle');
 
+
+    displayExerciseSelected(workoutSelection, subSelection)
+    
+    if (workoutSelection.value.toLowerCase() === 'strength' ) {
+    handeStrenghtWorkout();
+    }
+    
 });
