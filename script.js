@@ -1,7 +1,7 @@
 
 const workouts = {
     strength: ["Chest", "Back", "Legs"],
-    cardio: ["HIIT", "TABATA"]
+    cardio: ["HIIT"]
   };
 
 
@@ -19,12 +19,7 @@ function handleSubmit(e) {
     alert("Handle submit")
 }
 
-// target change in sub cat by option selected in main 
 
-  // add to event lessoner primary 
-  /*if (subSelection.value.toUpperCase() === 'HIIT') {
-    weightInputElement.remove();
-}*/
 
 workoutSelection.addEventListener('change',(e)=> {
     const primaryCategorySelected = e.target.value;
@@ -36,6 +31,8 @@ workoutSelection.addEventListener('change',(e)=> {
          else {
          inputWeight.style.display = 'block';
         }
+
+        
 
 });
 
@@ -109,15 +106,13 @@ const accessoriesCategory = {
     'chest' : ['chestExercise' , 'armExercise'],
     'back' : ['shoulderExercise' , 'backExercise'],
     'legs' : ['legExercise' , 'coreExtercise'],
+    'hiit' : ['cardioExercise']
 };
 
-    
 
-function hiitAccessories(hiitExercise){
 
-}
 
-function generateAccessoryWorkout(exerciseAccessories) {
+function generateStrengthAccessoryWorkout(exerciseAccessories) {
     const subCategorySelected = subSelection.value.toLowerCase();
     let randomCategory;
     let accessoryWorkoutCount = 1;
@@ -129,12 +124,10 @@ function generateAccessoryWorkout(exerciseAccessories) {
       const randomExercise = exerciseAccessories[randomCategory][Math.floor(Math.random() * exerciseAccessories[randomCategory].length)];
         
 
-      if (selectedExercises.includes(randomExercise)) {
-        continue;
-     }
-  
-      selectedExercises.push(randomExercise); 
-      accessoryWorkoutCount++;
+      if (!selectedExercises.includes(randomExercise)) {
+        selectedExercises.push(randomExercise); 
+        accessoryWorkoutCount++;
+      }
     }
       
       
@@ -145,6 +138,49 @@ function generateAccessoryWorkout(exerciseAccessories) {
       });
     
   }; 
+
+  function generateHiitAccessoryWorkout(){
+
+    const subCategorySelected = subSelection.value.toLowerCase();
+    const selectedExercises = []; 
+    let accessoryWorkoutCount = 0;
+
+    while (accessoryWorkoutCount < 10){
+
+
+        if (accessoryWorkoutCount % 2 === 0) {
+            const hiitAccessories = exerciseAccessories['cardioExercise'];
+            const randomHiitAccessories = hiitAccessories[Math.floor(Math.random()*hiitAccessories.length)];
+            
+            if (!selectedExercises.includes(randomHiitAccessories)) {
+                selectedExercises.push(randomHiitAccessories);
+                accessoryWorkoutCount++;
+            }
+            
+        } else {
+            const hiitAccessories = [
+                exerciseAccessories['backExercise'],
+        exerciseAccessories['chestExercise'],
+        exerciseAccessories['legExercise'],
+        exerciseAccessories['coreExtercise']
+      ][accessoryWorkoutCount % 4];
+
+      const randomHiitAccessories = hiitAccessories[Math.floor(Math.random() * hiitAccessories.length)];
+
+      if (!selectedExercises.includes(randomHiitAccessories)) {
+        selectedExercises.push(randomHiitAccessories);
+        accessoryWorkoutCount++;
+      }
+    }
+  };
+
+  selectedExercises.forEach(exercise => {
+    const accessories = document.createElement('p');
+    accessories.textContent = exercise;
+    result.appendChild(accessories);
+      });
+    
+  };
 
   function handeStrenghtWorkout() {
     const weightSelected = inputWeight.value;
@@ -177,8 +213,15 @@ function generateAccessoryWorkout(exerciseAccessories) {
 
         setCount++; 
     }   
-    generateAccessoryWorkout(exerciseAccessories);
+    generateStrengthAccessoryWorkout(exerciseAccessories);
   }
+
+    
+  function handleCardioWorkout () {
+    generateHiitAccessoryWorkout()
+}
+
+ 
 
 formInput.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -189,9 +232,17 @@ formInput.addEventListener('submit', function (event) {
 
 
     displayExerciseSelected(workoutSelection, subSelection)
-    
+
     if (workoutSelection.value.toLowerCase() === 'strength' ) {
     handeStrenghtWorkout();
     }
-    
+
+    if (workoutSelection.value.toLowerCase() === 'cardio' ) {
+        const instruction = document.createElement('p');
+        instruction.textContent = "Complete each exercise for 45s with a 15s rest before moving on to the next exercise. Once through the list, take a 1-minute rest. rinse & repeat for a total of 3 times to finish your workout.";
+        result.appendChild(instruction);
+        handleCardioWorkout();
+
+    }
+
 });
