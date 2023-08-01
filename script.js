@@ -163,7 +163,7 @@ function generateStrengthAccessoryWorkout(exerciseAccessories) {
         exerciseAccessories['chestExercise'],
         exerciseAccessories['legExercise'],
         exerciseAccessories['coreExtercise']
-      ][accessoryWorkoutCount % 4];
+      ][accessoryWorkoutCount % 4]; //cycle through array 
 
       const randomHiitAccessories = hiitAccessories[Math.floor(Math.random() * hiitAccessories.length)];
 
