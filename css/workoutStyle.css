@@ -1,10 +1,10 @@
- * {
+  * {
     box-sizing: border-box;
 }
 
 body{
-    background-color: #d1d1d1;
-    color: black;
+    background: linear-gradient(black 60%, rgb(60, 2, 60));
+    color:  rgb(219, 230, 235);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px; 
     line-height: 1.6em;
@@ -16,7 +16,7 @@ body{
  .main {
     margin: 100px 0px;
     padding: 0 50px;
-    background-color: #d1d1d1;
+    
 }
 
 body.newStyle .main > * {
@@ -32,20 +32,20 @@ body.newStyle .main {
 }
 
 .main-header {
-    background-color: #d1d1d1;
+    background-color: black;
     text-align: center;
     padding: 30px;
 }
 body.newStyle .main-header {
-    background-color: #d1d1d1;
-    color: #000000;
+    background-color: black;
+    color:  rgb(219, 230, 235);
 }
 
 .main-header > h1 {
     
     width: fit-content; 
     margin: 0 auto;
-    color: #555;
+    color:  rgb(219, 230, 235);
 }
 .form-container {
     display: flex;
@@ -55,9 +55,11 @@ body.newStyle .main-header {
 
 .instructions {
     margin-bottom: 20px;
+    color: rgb(219, 230, 235);
 }
 .instructions h2 {
     text-align: center;
+    color: rgb(219, 230, 235);
 }
 .selections-container {
     display: flex;
@@ -72,16 +74,18 @@ body.newStyle .main-header {
 }
 
 .form-input {
-    background: black;
-    color: #fff;
+    background-color: rgb(219, 230, 235);
+    color: black;
     width: 100%; 
     height: 50px;
     border-radius: 10px;
+    font-size: large;
 }
 
 body.newStyle .form-input {
-    background: black;
-    color: #fff;
+    background-color: rgb(219, 230, 235);
+    color: black;
+    font-size: large;
 }
 
 body.newStyle .form-input::placeholder {
@@ -92,16 +96,17 @@ body.newStyle .form-input::placeholder {
 
 .submit-button {
     height: 30px;
-    width: 100px;
-    background-color: black;
-    color: #fff;
+    width: 100%;
+    background-color: rgb(219, 230, 235);
+    color: black;
     border-radius: 10px;
+    margin-top: 10px;
    
 }
 
 body.newStyle .submit-button {
-    background-color: black;
-    color: #fff;
+    background-color: rgb(219, 230, 235);
+    color: black;
 }
 .submit-button:hover {
     background-color: white;
@@ -109,37 +114,17 @@ body.newStyle .submit-button {
 
 }
 
-body.newStyle .submit-button:hover {
-    background-color: white;
-    color: black;
-}
-
 .results {
     text-align: center;
-    color: black;
-    background-color: #eee;
+    color: rgb(219, 230, 235);
+   background-color: rgba(60, 2, 60, 0.1) ;
     margin-top: 20px; 
     width: 100%; }
     
-    body.newStyle .results {
-        background-color: #d7d7d7;
+    @media screen and (max-width: 435px) {
+    
+        .form-container {
+            display: block; /* Switch to block layout */
+            text-align: center; /* Center align the content */
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
