@@ -125,6 +125,7 @@ function generateStrengthAccessoryWorkout(exerciseAccessories) {
     }
   }
     
+
     
     selectedExercises.forEach(exercise => {
       const accessories = document.createElement('p');
@@ -166,9 +167,13 @@ function generateHiitAccessoryWorkout(){
     if (!selectedExercises.includes(randomHiitAccessories)) {
       selectedExercises.push(randomHiitAccessories);
       accessoryWorkoutCount++;
+
+  }; 
+
+  
     }
   }
-};
+
 
 selectedExercises.forEach(exercise => {
   const accessories = document.createElement('p');
