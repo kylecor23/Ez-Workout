@@ -106,6 +106,19 @@ const accessoriesCategory = {
 
 
 
+function generateTableRow(parentElement, cellsData) {
+  const row = document.createElement('tr');
+  row.classList.add('rowClass')
+  parentElement.appendChild(row);
+
+  cellsData.forEach(cellText => {
+    const cell = document.createElement('td');
+    cell.classList.add('tableCell');
+    cell.textContent = cellText;
+    row.appendChild(cell);
+  });
+}
+
 
 function generateStrengthAccessoryWorkout(exerciseAccessories) {
   const subCategorySelected = subSelection.value.toLowerCase();
@@ -124,14 +137,26 @@ function generateStrengthAccessoryWorkout(exerciseAccessories) {
       accessoryWorkoutCount++;
     }
   }
-    
+
+  const accessoriesLabel = document.createElement('p');
+  accessoriesLabel.textContent = 'Accessories';
+  accessoriesLabel.classList.add('accessoriesLabel')
+  result.appendChild(accessoriesLabel);
 
     
-    selectedExercises.forEach(exercise => {
-      const accessories = document.createElement('p');
-      accessories.textContent = `4x12: ${exercise}`;
-      result.appendChild(accessories);
-    });
+  const accessoriesTable = document.createElement('table');
+  accessoriesTable.classList.add('strengthTable');
+  result.appendChild(accessoriesTable);
+
+  
+  generateTableRow(accessoriesTable, ['Exercise', 'Sets', 'Reps']);
+
+  selectedExercises.forEach(exercise => {
+    generateTableRow(accessoriesTable, [exercise, '4', '12']);
+  });
+
+    
+ 
   
 }; 
 
@@ -197,6 +222,15 @@ function handeStrenghtWorkout() {
   
   let setCount = 0;
 
+ 
+  const strengthTable = document.createElement('table');
+  strengthTable.classList.add('strengthTable');
+  result.appendChild(strengthTable);
+
+  // Create table header
+  generateTableRow(strengthTable, ['Weight', 'Sets', 'Reps']);
+
+   
   while (setCount <= 3) { // the max number of sets, at which the iteration will stop. 
       
       const percentAdded = setCount * 0.05; // percent is incremented by 0.05.
@@ -209,8 +243,11 @@ function handeStrenghtWorkout() {
       
       const isLastSet = setCount === 3
 
-      weightDisplay.textContent = isLastSet ? `1 x 4: ${setWeight}lbs` : `${sets} x ${reps}: ${setWeight}lbs`;
-      result.appendChild(weightDisplay);
+   
+
+    
+    generateTableRow(strengthTable, [`${setWeight} lbs`, sets, reps]); 
+    
 
       setCount++; 
   }   

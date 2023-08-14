@@ -109,8 +109,8 @@ body.newStyle .submit-button {
     color: black;
 }
 .submit-button:hover {
-    background-color: white;
-    color: black;
+    background-color: purple;
+    color: white;
 
 }
 
@@ -119,12 +119,51 @@ body.newStyle .submit-button {
     color: rgb(219, 230, 235);
    background-color: rgba(60, 2, 60, 0.1) ;
     margin-top: 20px; 
-    width: 100%; }
+    width: 100%; 
     
-    @media screen and (max-width: 435px) {
+}
     
-        .form-container {
-            display: block; /* Switch to block layout */
+/* population of results */
+
+.accessoriesLabel {
+    font-size: large;
+    font-weight: bold;
+}
+/* strength table */
+
+.strengthTable {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tableRow {
+    display: table-row;
+}
+
+
+.tableCell {
+    display: table-cell;
+    border: 1px solid transparent;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.header {
+    font-weight: bold;
+    background-color: rgba(60, 2, 60, 0.1);
+}
+
+
+@media screen and (max-width: 600px) {
+     .main {
+            flex-direction: column;
             text-align: center; /* Center align the content */
-        }
     }
+        
+     .results {
+            margin-top: 0; /* Adjust the margin to align the .results with the input field */
+     }
+}
