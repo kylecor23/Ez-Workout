@@ -1,0 +1,146 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: linear-gradient(black 60%, rgb(60, 2, 60));
+	color: rgb(219, 230, 235);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.6em;
+	margin: 0;
+	padding: 0;
+}
+
+.main {
+	margin: 100px 0px;
+	padding: 0 50px;
+}
+
+body.newStyle .main > * {
+	flex: 50%;
+}
+
+body.newStyle .main {
+	display: flex;
+	column-gap: 30px;
+	margin: 100px 0px;
+	width: 100%;
+	padding: 0 50px;
+}
+
+.main-header {
+	background-color: black;
+	text-align: center;
+	padding: 30px;
+}
+
+.main-header > h1 {
+	width: fit-content;
+	margin: 0 auto;
+	color: rgb(219, 230, 235);
+}
+.form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.instructions {
+	margin-bottom: 20px;
+	color: rgb(219, 230, 235);
+}
+.instructions h2 {
+	text-align: center;
+	color: rgb(219, 230, 235);
+}
+.selections-container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.selection {
+	flex: 1;
+	margin-right: 10px;
+}
+
+.form-input {
+	background-color: rgb(219, 230, 235);
+	color: black;
+	width: 100%;
+	height: 50px;
+	border-radius: 10px;
+	font-size: large;
+}
+
+.submit-button {
+	height: 30px;
+	width: 100%;
+	background-color: rgb(219, 230, 235);
+	color: black;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+.submit-button:hover {
+	background-color: purple;
+	color: white;
+}
+
+.results {
+	text-align: center;
+	color: rgb(219, 230, 235);
+	background-color: rgba(60, 2, 60, 0.1);
+	margin-top: 20px;
+	width: 100%;
+}
+
+/* population of results */
+
+.mainWorkoutSelected {
+	font-size: large;
+	font-weight: bold;
+}
+
+.accessoriesLabel {
+	font-size: large;
+	font-weight: bold;
+}
+/* strength table */
+
+.strengthTable {
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+.tableRow :first-child {
+	display: table-row;
+	border-bottom: white;
+}
+
+.tableCell {
+	display: table-cell;
+	border: 1px solid transparent;
+	padding: 10px;
+	text-align: center;
+}
+
+.header {
+	font-weight: bold;
+	background-color: rgba(60, 2, 60, 0.1);
+}
+
+@media screen and (max-width: 800px) {
+	.main {
+		flex-direction: column;
+		text-align: center; /* Center align the content */
+	}
+
+	.results {
+		margin-top: 0; /* Adjust the margin to align the .results with the input field */
+	}
+}
