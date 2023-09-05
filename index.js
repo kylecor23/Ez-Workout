@@ -302,7 +302,122 @@ function handeStrenghtWorkout() {
 function handleCardioWorkout() {
 	generateHiitAccessoryWorkout();
 }
+//test
+const workDurationInput = document.getElementById("workDuration");
+const restDurationInput = document.getElementById("restDuration");
+const roundsInput = document.getElementById("rounds");
+const startTimerButton = document.getElementById("startIntervalTimerButton");
+const showTimerInputsButton = document.getElementById("showTimerInputsButton");
+const timerText = document.getElementById("timerText");
+const pauseButton = document.getElementById("pauseButton");
+const resetButton = document.getElementById("resetButton");
 
+// Initially hide the timer inputs and timer display
+document.getElementById("popupContent").style.display = "none";
+document.getElementById("timerDisplay").style.display = "none";
+
+// Add a click event listener to show the timer inputs
+
+showTimerInputsButton.addEventListener("click", function () {
+	document.getElementById("popupContent").style.display = "block";
+	document.getElementById("showTimerInputsButton").style.display = "none";
+});
+
+let currentInterval = "work";
+let rounds = 1;
+let currentRound = 1;
+let isPaused = false;
+let timerInterval;
+
+let roundStartSound = document.getElementById("roundStartSound");
+let timerCompleteSound = document.getElementById("timerCompleteSound");
+
+function startIntervalTimer() {
+	const workDuration = parseInt(workDurationInput.value, 10);
+	const restDuration = parseInt(restDurationInput.value, 10);
+	const rounds = parseInt(roundsInput.value, 10);
+
+	/*if (
+		isNaN(workDuration) ||
+		isNaN(restDuration) ||
+		isNaN(rounds) ||
+		workDuration <= 0 ||
+		restDuration <= 0 ||
+		rounds <= 0
+	) {
+		alert("Please enter valid durations and rounds (greater than 0).");
+		return;
+	}*/
+
+	// Hide the input fields and display the timer
+	document.getElementById("popupContent").style.display = "none";
+	document.getElementById("timerDisplay").style.display = "block";
+
+	let remainingTime = currentInterval === "work" ? workDuration : restDuration;
+
+	function updateTimerDisplay() {
+		if (isPaused) return;
+
+		timerText.textContent = `${currentRound} / ${rounds} (${currentInterval.toUpperCase()}) - ${remainingTime}`;
+		timerText.style.color = currentInterval === "work" ? "green" : "blue";
+
+		if (remainingTime <= 0) {
+			if (currentInterval === "work") {
+				currentInterval = "rest";
+				remainingTime = restDuration;
+				roundStartSound.play(); // Play sound at the beginning of a rest period
+			} else {
+				currentInterval = "work";
+				remainingTime = workDuration;
+				if (currentRound >= rounds) {
+					clearInterval(timerInterval);
+					timerText.textContent = "Completed!";
+					timerCompleteSound.play(); // Play sound when the timer completes
+					pauseButton.disabled = true;
+				} else {
+					currentRound++;
+					roundStartSound.play(); // Play sound at the beginning of a new round
+				}
+			}
+		} else {
+			remainingTime--;
+		}
+	}
+
+	updateTimerDisplay();
+	timerInterval = setInterval(updateTimerDisplay, 1000);
+	pauseButton.disabled = false;
+}
+
+function pauseTimer() {
+	if (isPaused) {
+		pauseButton.textContent = "Pause";
+		isPaused = false;
+	} else {
+		pauseButton.textContent = "Resume";
+		isPaused = true;
+	}
+}
+
+function resetTimer() {
+	clearInterval(timerInterval);
+	isPaused = false;
+	currentRound = 1;
+	pauseButton.disabled = true;
+	document.getElementById("popupContent").style.display = "block";
+	document.getElementById("timerDisplay").style.display = "none";
+	workDurationInput.value = "";
+	restDurationInput.value = "";
+	roundsInput.value = "1";
+	timerText.textContent = "";
+}
+
+// Add click event listeners
+startTimerButton.addEventListener("click", startIntervalTimer);
+pauseButton.addEventListener("click", pauseTimer);
+resetButton.addEventListener("click", resetTimer);
+
+//test
 formInput.addEventListener("submit", function (event) {
 	event.preventDefault();
 	result.innerHTML = "";
