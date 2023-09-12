@@ -1,5 +1,7 @@
 EZ-Workout
 
+Try it out: https://kylecor23.github.io/Ez-Workout/
+
 Description:
 
 EZ-Workout is your personal workout companion, designed to simplify the process of generating quick and effective workout routines when time is limited. Whether you're a regular at the gym or someone looking to maintain a healthy lifestyle with minimal effort, EZ-Workout has you covered.
